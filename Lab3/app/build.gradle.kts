@@ -1,10 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-    kotlin("plugin.serialization") version "2.3.21"
-
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
-
 android {
     namespace = "com.example.labtemplate"
     compileSdk {
@@ -64,5 +63,11 @@ dependencies {
     val nav_version = "2.9.8"
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    val roomVersion = "2.8.4"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
 }
